@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "53778877282",
+    "project_id": "finalproject-be68a",
+    "storage_bucket": "finalproject-be68a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53778877282:android:ddc6de931bbc13e27efa3b",
+        "android_client_info": {
+          "package_name": "com.example.finpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53778877282-8sb2cu83n7ordasfien5fd8seed17ksr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk6T9bvKszMdxWbQ1_wMJHo3mVdioejtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53778877282-8sb2cu83n7ordasfien5fd8seed17ksr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

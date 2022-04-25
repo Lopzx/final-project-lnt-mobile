@@ -1,16 +1,31 @@
 package com.example.finpro;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
     TextView login_page;
@@ -23,6 +38,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     View.OnClickListener login_redir;
     View.OnClickListener register_handler;
+
+    private FirebaseAuth auth_instance;
+    private FirebaseFirestore db;
 
     private void log_regis_error(String message){
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
@@ -65,6 +83,11 @@ public class RegisterActivity extends AppCompatActivity {
             status = false;
         }
 
+        if(password_val.length() < 6){
+            error_message.add("Password minimal 6 huruf");
+            status = false;
+        }
+
         String message = String.join("\n",error_message);
 
         if(error_message.size() != 0){
@@ -82,6 +105,9 @@ public class RegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.password_in);
         password_confirm = findViewById(R.id.password_confirmation_in);
         submit = findViewById(R.id.submit_button);
+
+        auth_instance = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         initEvent();
 
@@ -102,6 +128,48 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Boolean validate_status = validate();
+                String id_val = id_bimble.getText().toString();
+                String email_val = email.getText().toString();
+                String name_val = name.getText().toString();
+                String password_val = password.getText().toString();
+
+                if(validate_status) {
+                    auth_instance.createUserWithEmailAndPassword(email_val, password_val)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Toast.makeText(getApplicationContext(), "Sign-up successfull", Toast.LENGTH_SHORT).show();
+
+                                Map<String, Object> user = new HashMap<>();
+                                user.put("class_id", id_val);
+                                user.put("name", name_val);
+                                user.put("email", email_val);
+
+                                db.collection("user_details").add(user)
+                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    @Override
+                                    public void onSuccess(DocumentReference documentReference) {
+                                        Log.d("ERROR", "DocumentSnapshot added with ID: " + documentReference.getId());
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.w("ERROR", "Error adding document", e);
+                                    }
+                                });
+                                Intent redir = new Intent( getApplicationContext() ,com.example.finpro.LoginActivity.class);
+                                startActivity(redir);
+                            } else {
+                                Log.w("TAGS","createUser:failure", task.getException());
+                                Toast.makeText(getApplicationContext(), "Sign-up failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
             }
         };
     }

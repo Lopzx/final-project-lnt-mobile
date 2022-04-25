@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/maddo/AndroidStudioProjects/finpro/app/src/main/res/drawable/reset.xml" value="0.158" />
         <entry key="..\:/Users/maddo/AndroidStudioProjects/finpro/app/src/main/res/layout/activity_login.xml" value="0.24230072463768115" />
         <entry key="..\:/Users/maddo/AndroidStudioProjects/finpro/app/src/main/res/layout/activity_main.xml" value="0.24230072463768115" />
         <entry key="..\:/Users/maddo/AndroidStudioProjects/finpro/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/Users/maddo/AndroidStudioProjects/finpro/app/src/main/res/layout/fragment_blank.xml" value="0.2359375" />
+        <entry key="..\:/Users/maddo/AndroidStudioProjects/finpro/app/src/main/res/layout/fragment_blank2.xml" value="0.228125" />
+        <entry key="..\:/Users/maddo/AndroidStudioProjects/finpro/app/src/main/res/layout/fragment_counter.xml" value="0.264" />
+        <entry key="..\:/Users/maddo/AndroidStudioProjects/finpro/app/src/main/res/layout/fragment_counter1.xml" value="0.1484375" />
+        <entry key="..\:/Users/maddo/AndroidStudioProjects/finpro/app/src/main/res/layout/fragment_tab.xml" value="0.23229166666666667" />
       </map>
     </option>
   </component>
