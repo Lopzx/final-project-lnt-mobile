@@ -21,13 +21,13 @@ public class TabFragAdapter extends FragmentStateAdapter {
 
         switch (position) {
             case 0 :
-                fragment = new ItemFragment(R.layout.fragment_counter);
+                fragment = new counter();
                 break;
             case 1 :
-                fragment = new ItemFragment(R.layout.activity_login);
+                fragment = new ItemFragment(R.layout.fragment_calc_luas);
                 break;
             case 2 :
-                fragment = new ItemFragment(R.layout.activity_register);
+                fragment = new ItemFragment(R.layout.fragment_volume_calculator);
                 break;
         }
 

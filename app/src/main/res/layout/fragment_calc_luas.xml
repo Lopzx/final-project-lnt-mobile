@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".calc_luas">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="44dp"
+            android:text="Persegi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/panjang_sisi_persegi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Panjang Sisi"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <Button
+            android:id="@+id/calculate_persegi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Calculate"
+            app:layout_constraintStart_toStartOf="@+id/panjang_sisi_persegi"
+            app:layout_constraintTop_toBottomOf="@+id/panjang_sisi_persegi" />
+
+        <TextView
+            android:id="@+id/result_persegi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Result :"
+            app:layout_constraintBottom_toBottomOf="@+id/calculate_persegi"
+            app:layout_constraintStart_toEndOf="@+id/calculate_persegi"
+            app:layout_constraintTop_toTopOf="@+id/calculate_persegi"
+            app:layout_constraintVertical_bias="0.448" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="28dp"
+            android:text="Segitiga"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calculate_persegi" />
+
+        <EditText
+            android:id="@+id/panjang_alas_segitiga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Panjang Alas Segitiga"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <EditText
+            android:id="@+id/tinggi_segitiga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:hint="Tinggi"
+            app:layout_constraintStart_toEndOf="@+id/panjang_alas_segitiga"
+            app:layout_constraintTop_toTopOf="@+id/panjang_alas_segitiga" />
+
+        <Button
+            android:id="@+id/calculate_segitiga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Calculate"
+            app:layout_constraintStart_toStartOf="@+id/panjang_sisi_persegi"
+            app:layout_constraintTop_toBottomOf="@+id/panjang_alas_segitiga" />
+
+        <TextView
+            android:id="@+id/result_segitiga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Result :"
+            app:layout_constraintBottom_toBottomOf="@+id/calculate_segitiga"
+            app:layout_constraintStart_toEndOf="@+id/calculate_persegi"
+            app:layout_constraintTop_toTopOf="@+id/calculate_segitiga"
+            app:layout_constraintVertical_bias="0.448" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="36dp"
+            android:text="Lingkaran"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calculate_segitiga" />
+
+        <EditText
+            android:id="@+id/jari_lingkaran"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Jari Jari"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <Button
+            android:id="@+id/calc_lingkaran"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Calculate"
+            app:layout_constraintStart_toStartOf="@+id/panjang_sisi_persegi"
+            app:layout_constraintTop_toBottomOf="@+id/jari_lingkaran" />
+
+        <TextView
+            android:id="@+id/result_lingkaran"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Result :"
+            app:layout_constraintBottom_toBottomOf="@+id/calc_lingkaran"
+            app:layout_constraintStart_toEndOf="@+id/calculate_persegi"
+            app:layout_constraintTop_toTopOf="@+id/calc_lingkaran"
+            app:layout_constraintVertical_bias="0.448" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</FrameLayout>
