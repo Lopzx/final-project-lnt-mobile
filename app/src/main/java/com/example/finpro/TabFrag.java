@@ -25,7 +25,7 @@ public class TabFrag extends Fragment {
     // representing an object in the collection.
     TabFragAdapter adapter;
     ViewPager2 viewPager;
-    String[] tabNameList = {"Counter", "Field", "Temporary"};
+    String[] tabNameList = {"Counter", "Luas", "Volume"};
 
     @Nullable
     @Override

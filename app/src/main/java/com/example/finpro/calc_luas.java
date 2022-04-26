@@ -4,61 +4,97 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.telephony.mbms.MbmsErrors;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link calc_luas#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.Locale;
+
+
 public class calc_luas extends Fragment {
+    // Persegi
+    EditText panjangSisiPersegi;
+    Button calculatePersegi;
+    TextView resultPersegi;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    // Segitiga
+    EditText panjangAlasSegitiga;
+    EditText tinggiSegitiga;
+    Button calculateSegitiga;
+    TextView resultSegitiga;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    // Lingkaran
+    EditText jariLingkaran;
+    Button calculateLingkaran;
+    TextView resultLingkaran;
 
-    public calc_luas() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment calc_luas.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static calc_luas newInstance(String param1, String param2) {
-        calc_luas fragment = new calc_luas();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calc_luas, container, false);
+        View v = inflater.inflate(R.layout.fragment_calc_luas, container, false);;
+        //Persegi
+        panjangSisiPersegi = v.findViewById(R.id.panjang_sisi_persegi);
+        calculatePersegi = v.findViewById(R.id.calculate_persegi);
+        resultPersegi = v.findViewById(R.id.result_persegi);
+
+        //Segitiga
+        panjangAlasSegitiga = v.findViewById(R.id.panjang_alas_segitiga);
+        tinggiSegitiga = v.findViewById(R.id.tinggi_segitiga);
+        calculateSegitiga = v.findViewById(R.id.calculate_segitiga);
+        resultSegitiga = v.findViewById(R.id.result_segitiga);
+
+        //Lingkaran
+        jariLingkaran = v.findViewById(R.id.jari_lingkaran);
+        calculateLingkaran = v.findViewById(R.id.calc_lingkaran);
+        resultLingkaran = v.findViewById(R.id.result_lingkaran);
+
+        calculatePersegi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               try {
+                   resultPersegi.setText(Double.toString(Math.pow(Double.parseDouble(panjangSisiPersegi.getText().toString()),2)));
+               } catch (Exception ex) {
+                    Toast.makeText(getContext(),"Input tidak boleh kosong atau mengandung huruf", Toast.LENGTH_LONG).show();
+               }
+            }
+        });
+
+        calculateSegitiga.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               try {
+                   Double panjangAlasVal = Double.parseDouble(panjangAlasSegitiga.getText().toString());
+                   Double tinggiSegitigaVal = Double.parseDouble(tinggiSegitiga.getText().toString());
+                   resultSegitiga.setText(String.format(Locale.US, "%.3f",(1d/2d) * panjangAlasVal * tinggiSegitigaVal));
+               } catch (Exception ex) {
+                   Toast.makeText(getContext(),"Input tidak boleh kosong atau mengandung huruf", Toast.LENGTH_LONG).show();
+               }
+            }
+        });
+
+        calculateLingkaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Double jari = Double.parseDouble(jariLingkaran.getText().toString());
+                    resultLingkaran.setText(String.format(Locale.US, "%.3f",Math.PI * Math.pow(jari, 2)));
+                } catch (Exception ex) {
+                    Toast.makeText(getContext(),"Input tidak boleh kosong atau mengandung huruf", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        return v;
     }
 }

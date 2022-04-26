@@ -83,4 +83,14 @@ public class counter extends Fragment {
         }
         return 0;
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        SharedPreferences.Editor editor = instance.edit();
+        editor.putInt("counter_data", Integer.parseInt(display.getText().toString()));
+        editor.apply();
+
+    }
 }

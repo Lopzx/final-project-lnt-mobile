@@ -40,6 +40,15 @@
             app:layout_constraintStart_toEndOf="@+id/panjang_balok"
             app:layout_constraintTop_toTopOf="@+id/panjang_balok" />
 
+        <EditText
+            android:id="@+id/tinggi_balok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="116dp"
+            android:hint="Tiggi"
+            app:layout_constraintStart_toEndOf="@+id/panjang_balok"
+            app:layout_constraintTop_toTopOf="@+id/panjang_balok" />
+
         <Button
             android:id="@+id/calculate_balok"
             android:layout_width="wrap_content"
@@ -75,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Luas Alas"
+            android:hint="Panjang sisi alas"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 

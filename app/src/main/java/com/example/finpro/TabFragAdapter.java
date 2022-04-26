@@ -17,17 +17,16 @@ public class TabFragAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         // Return a NEW fragment instance in createFragment(int)
         Fragment fragment = new ItemFragment(R.layout.fragment_counter);
-        Log.w("Position", Integer.toString(position));
 
         switch (position) {
             case 0 :
                 fragment = new counter();
                 break;
             case 1 :
-                fragment = new ItemFragment(R.layout.fragment_calc_luas);
+                fragment = new calc_luas();
                 break;
             case 2 :
-                fragment = new ItemFragment(R.layout.fragment_volume_calculator);
+                fragment = new VolumeCalculator();
                 break;
         }
 
